@@ -1,0 +1,18 @@
+{
+    "name": "ewait",
+    "description": "WaitForAll and WaitForAny on EventEmitter.",
+    "version": "0.1.0",
+    "author": "Mathieu Turcotte <turcotte.mat@gmail.com>",
+    "keywords": ["wait", "events", "async"],
+    "devDependencies": {
+        "nodeunit": "0.7",
+        "sinon": "1.3"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/MathieuTurcotte/node-wait.git"
+    },
+    "scripts": {
+        "test": "node_modules/nodeunit/bin/nodeunit tests/"
+    }
+}
