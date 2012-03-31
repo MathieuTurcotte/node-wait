@@ -9,13 +9,14 @@ npm install ewait
 ```
 ## Usage
 
-`WaitForAny` and `WaitForAll` wait until one or all of the specified
-`EventEmitter` are done or the timeout interval elapses.
+`WaitForAny` will wait until one of the specified `EventEmitter` is done.
+By contrast, `WaitForAll` will wait until all of the specified `EventEmitter`
+are done.
 
-Upon successful completion, a `done` event is emitted by the `WaitForAll` or
-`WaitForAny` instance. On timeout, a `timeout` event is emitted.
+Upon successful completion, they will both emit a `done` event. On timeout,
+a `timeout` event will be emitted.
 
-By default, `WaitForAny` and `WaitForAll` will listen for the `done` event.
+By default, `WaitForAny` and `WaitForAll` listen for the `done` event.
 This behavior can be altered by specifying a custom event type.
 
 ## Example
@@ -26,7 +27,7 @@ var all = new WaitForAll({
     event: 'flushed'    // Wait for a custom event.
 });
 
-all.add([toilet1, toilet2, toilet2]);
+all.add([toilet1, toilet2, toilet3]);
 
 all.once('done', function() {
     console.log('All done!');
