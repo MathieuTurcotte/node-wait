@@ -1,7 +1,7 @@
 {
     "name": "ewait",
     "description": "WaitForAll and WaitForAny on EventEmitter.",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "author": "Mathieu Turcotte <turcotte.mat@gmail.com>",
     "keywords": ["wait", "events", "async"],
     "devDependencies": {
