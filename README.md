@@ -85,11 +85,11 @@ Start waiting on `EventEmitter` instances.
 
 #### Event: 'done'
 
-The waiting criterion has been satisfied before timeout.
+Emitted when the waiting criterion has been satisfied before timeout.
 
 #### Event: 'timeout'
 
-Emitted when a backoff instance is reset.
+Emitted when timeout expires before waiting criterion is satisfied.
 
 ### Class WaitForAny
 
@@ -118,11 +118,11 @@ Start waiting on `EventEmitter` instances.
 
 #### Event: 'done'
 
-The waiting criterion has been satisfied before timeout.
+Emitted when the waiting criterion has been satisfied before timeout.
 
 #### Event: 'timeout'
 
-Emitted when a backoff instance is reset.
+Emitted when timeout expires before waiting criterion is satisfied.
 
 ### ewait.waitForAll(emitters, callback, [event, timeout])
 
@@ -132,6 +132,9 @@ Emitted when a backoff instance is reset.
 - timeout: the timeout delay
 
 `event` defaults to `done` and `timeout` defaults to undefined.
+
+The callback gets one argument (err) which is null on successful wait and
+contains an error on timeout.
 
 Behavior is the same as `WaitForAll`.
 
