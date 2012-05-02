@@ -55,3 +55,7 @@ ewait.waitForAll(delays, function(err) {
     }
 }, 2000, 'flushed');
 ```
+
+## License
+
+This code is free to use under the terms of the [MIT license](http://mturcotte.mit-license.org/).
