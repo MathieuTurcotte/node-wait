@@ -47,7 +47,7 @@ all.wait();
 ``` js
 var toilets = [toilet1, toilet2, toilet3];
 
-ewait.waitForAll(delays, function(err) {
+ewait.waitForAll(toilets, function(err) {
     if (err) {
         console.log('Timeout!');
     } else {
