@@ -21,6 +21,8 @@ This behavior can be altered by specifying a custom event type.
 
 ## Example
 
+### Object-Oriented style
+
 ``` js
 var all = new WaitForAll({
     timeout: 2000,      // Wait for 2000ms max.
@@ -40,3 +42,16 @@ all.once('timeout', function() {
 all.wait();
 ```
 
+### Functional style
+
+``` js
+var toilets = [toilet1, toilet2, toilet3];
+
+ewait.waitForAll(delays, function(err) {
+    if (err) {
+        console.log('Timeout!');
+    } else {
+        console.log('Done!');
+    }
+}, 2000, 'flushed');
+```
