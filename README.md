@@ -56,6 +56,91 @@ ewait.waitForAll(toilets, function(err) {
 }, 2000, 'flushed');
 ```
 
+## API
+
+### Class WaitForAll
+
+#### new WaitForAll([options])
+
+Construct a new wait object with an 'AND' semantic.
+
+`options` is an object with the following defaults:
+
+```js
+options = {
+    timeout: undefined, // No timeout.
+    event: 'done'       // Listen for 'done' event.
+};
+```
+
+#### wait.add(emitters)
+
+- emitters: an array of `EventEmitter`
+
+Add `EventEmitter` instances to wait on. Shouldn't be called after `wait`.
+
+#### wait.wait()
+
+Start waiting on `EventEmitter` instances.
+
+#### Event: 'done'
+
+The waiting criterion has been satisfied before timeout.
+
+#### Event: 'timeout'
+
+Emitted when a backoff instance is reset.
+
+### Class WaitForAny
+
+#### new WaitForAny([options])
+
+Construct a new wait object with an 'OR' semantic.
+
+`options` is an object with the following defaults:
+
+```js
+options = {
+    timeout: undefined, // No timeout.
+    event: 'done'       // Listen for 'done' event.
+};
+```
+
+#### wait.add(emitters)
+
+- emitters: an array of `EventEmitter`
+
+Add `EventEmitter` instances to wait on. Shouldn't be called after `wait`.
+
+#### wait.wait()
+
+Start waiting on `EventEmitter` instances.
+
+#### Event: 'done'
+
+The waiting criterion has been satisfied before timeout.
+
+#### Event: 'timeout'
+
+Emitted when a backoff instance is reset.
+
+### ewait.waitForAll(emitters, callback, [event, timeout])
+
+- emitters: an array of `EventEmitter`
+- callback: continuation callback
+- event: the event name
+- timeout: the timeout delay
+
+`event` defaults to `done` and `timeout` defaults to undefined.
+
+Behavior is the same as `WaitForAll`.
+
+### ewait.waitForAny(emitters, callback, [event, timeout])
+
+See `ewait.waitForAll` for arguments.
+
+Behavior is the same as `WaitForAny`.
+
 ## License
 
 This code is free to use under the terms of the [MIT license](http://mturcotte.mit-license.org/).
