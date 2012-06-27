@@ -4,10 +4,8 @@
  */
 
 var events = require('events'),
+    sinon = require('sinon'),
     util = require('util');
-
-var testCase = require('nodeunit').testCase,
-    sinon = require('sinon');
 
 var WaitForMultiple = require('../lib/multiple');
 
@@ -21,7 +19,7 @@ WaitForNothing.prototype.handleDone = function() {
     this.done++;
 };
 
-exports["WaitForMultiple"] = testCase({
+exports["WaitForMultiple"] = {
     setUp: function(callback) {
         this.clock = sinon.useFakeTimers();
         callback();
@@ -102,4 +100,4 @@ exports["WaitForMultiple"] = testCase({
         test.equal(e3.listeners('logged').length, 1);
         test.done();
     }
-});
+};

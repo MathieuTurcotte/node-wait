@@ -4,14 +4,11 @@
  */
 
 var events = require('events'),
-    util = require('util');
-
-var testCase = require('nodeunit').testCase,
     sinon = require('sinon');
 
 var WaitForAll = require('../lib/all');
 
-exports["WaitForAll"] = testCase({
+exports["WaitForAll"] = {
     setUp: function(callback) {
         this.clock = sinon.useFakeTimers();
         callback();
@@ -97,4 +94,4 @@ exports["WaitForAll"] = testCase({
         test.equal(e3.listeners('done').length, 0);
         test.done();
     }
-});
+};
