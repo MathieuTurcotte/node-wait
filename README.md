@@ -147,3 +147,4 @@ Behavior is the same as `WaitForAny`.
 ## License
 
 This code is free to use under the terms of the [MIT license](http://mturcotte.mit-license.org/).
+
