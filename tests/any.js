@@ -27,14 +27,18 @@ exports["WaitForAny"] = {
         var e3 = new events.EventEmitter();
 
         var waiter = new WaitForAny();
-        waiter.once('done', function() {
+        var parameter = null;
+        waiter.once('done', function(p) {
             isDone = true;
+            parameter = p;
         });
+        
         waiter.add([e1, e2, e3]);
         waiter.wait();
 
-        e2.emit('done');
+        e2.emit('done', "somevalue");
         test.ok(isDone);
+        test.equal(parameter, "somevalue");
 
         test.done();
     },
