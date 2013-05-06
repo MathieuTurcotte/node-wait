@@ -45,6 +45,31 @@ exports["WaitForAll"] = {
         test.done();
     },
 
+    "the arguments should be emitted": function(test) {
+        var emittedArguments = null;
+
+        var e0 = new events.EventEmitter();
+        var e1 = new events.EventEmitter();
+        var e2 = new events.EventEmitter();
+
+        var waiter = new WaitForAll();
+        waiter.once('done', function(args) {
+           emittedArguments = args;
+        });
+        waiter.add([e0, e1, e2]);
+        waiter.wait();
+
+        e0.emit('done', 'e0arg0', 'e0arg1');
+        e1.emit('done', 'e1arg0', 'e1arg1');
+        e2.emit('done', 'e2arg0', 'e2arg1');
+
+        test.deepEqual(emittedArguments[0], ['e0arg0', 'e0arg1']);
+        test.deepEqual(emittedArguments[1], ['e1arg0', 'e1arg1']);
+        test.deepEqual(emittedArguments[2], ['e2arg0', 'e2arg1']);
+
+        test.done();
+    },
+
     "'timeout' should not be emitted after the 'done' event": function(test) {
         var hasTimedOut = false;
         var isDone = false;
