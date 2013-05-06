@@ -7,6 +7,13 @@ WaitForAll and WaitForAny on EventEmitter instances.
 ```
 npm install ewait
 ```
+
+## Unit tests
+
+```
+npm test
+```
+
 ## Usage
 
 `WaitForAny` will wait until one of the specified `EventEmitter` is done.
@@ -85,6 +92,8 @@ Start waiting on `EventEmitter` instances.
 
 #### Event: 'done'
 
+- results: the results returned by the `EventEmitter`s
+
 Emitted when the waiting criterion has been satisfied before timeout.
 
 #### Event: 'timeout'
@@ -118,6 +127,8 @@ Start waiting on `EventEmitter` instances.
 
 #### Event: 'done'
 
+- index: the index of the `EventEmitter` that has fired
+
 Emitted when the waiting criterion has been satisfied before timeout.
 
 #### Event: 'timeout'
@@ -133,8 +144,10 @@ Emitted when timeout expires before waiting criterion is satisfied.
 
 `event` defaults to `done` and `timeout` defaults to undefined.
 
-The callback gets one argument (err) which is null on successful wait and
-contains an error on timeout.
+The callback takes two arguments, `err` and `results`.
+
+- err: is null on successful wait and contains an error on timeout
+- results: the results returned by the `EventEmitter`s
 
 Behavior is the same as `WaitForAll`.
 
