@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-var ewait = require('../index'),
-    Delay = require('./delay');
+var Delay = require('./delay');
+var ewait = require('../index');
 
 var delays = [
     new Delay(200),

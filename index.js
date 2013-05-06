@@ -3,9 +3,9 @@
  * Licensed under the MIT license.
  */
 
-var waitFn = require('./lib/waitfn'),
-    WaitForAny = require('./lib/any'),
-    WaitForAll = require('./lib/all');
+var WaitForAll = require('./lib/all');
+var WaitForAny = require('./lib/any');
+var waitFn = require('./lib/waitfn');
 
 module.exports = {
     WaitForAny: WaitForAny,

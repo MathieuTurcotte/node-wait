@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-var WaitForAny = require('../index').WaitForAny,
-    Delay = require('./delay');
+var Delay = require('./delay');
+var ewait = require('../index');
 
 var delays = [
     new Delay(200),
@@ -10,7 +10,7 @@ var delays = [
 ];
 
 // No delay will fire before timeout.
-var any = new WaitForAny({
+var any = new ewait.WaitForAny({
     timeout: 100,
     event: 'done'
 });

@@ -1,5 +1,5 @@
-var util = require('util'),
-    events = require('events');
+var events = require('events');
+var util = require('util');
 
 function Delay(delay) {
     events.EventEmitter.call(this);

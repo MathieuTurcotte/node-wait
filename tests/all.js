@@ -3,8 +3,8 @@
  * Licensed under the MIT license.
  */
 
-var events = require('events'),
-    sinon = require('sinon');
+var events = require('events');
+var sinon = require('sinon');
 
 var WaitForAll = require('../lib/all');
 
