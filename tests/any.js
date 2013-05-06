@@ -27,22 +27,37 @@ exports["WaitForAny"] = {
         var e3 = new events.EventEmitter();
 
         var waiter = new WaitForAny();
-        var parameter = null;
-        waiter.once('done', function(p) {
+        waiter.once('done', function() {
             isDone = true;
-            parameter = p;
         });
         
         waiter.add([e1, e2, e3]);
         waiter.wait();
 
-        e2.emit('done', "somevalue");
+        e2.emit('done');
         test.ok(isDone);
-        test.equal(parameter, "somevalue");
 
         test.done();
     },
+    "waiter emits emitter index": function(test) {
+        var e1 = new events.EventEmitter();
+        var e2 = new events.EventEmitter();
+        var e3 = new events.EventEmitter();
 
+        var waiter = new WaitForAny();
+        var emittedIndex = null;
+        waiter.once('done', function(index) {
+            emittedIndex = index;
+        });
+        
+        waiter.add([e1, e2, e3]);
+        waiter.wait();
+
+        e3.emit('done');
+        test.equal(emittedIndex, 2);
+
+        test.done();
+    },
     "'timeout' should not be emitted after the 'done' event": function(test) {
         var hasTimedOut = false;
         var isDone = false;
