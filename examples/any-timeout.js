@@ -1,4 +1,7 @@
-#!/usr/bin/env node
+/*
+ * Copyright (c) 2012 Mathieu Turcotte
+ * Licensed under the MIT license.
+ */
 
 var Delay = require('./delay');
 var ewait = require('../index');
