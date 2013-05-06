@@ -6,7 +6,7 @@
     "keywords": ["wait", "events", "async"],
     "devDependencies": {
         "nodeunit": "0.8",
-        "sinon": "1.4",
+        "sinon": "1.6",
         "jshint": "1.1"
     },
     "repository": {
