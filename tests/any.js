@@ -39,7 +39,7 @@ exports["WaitForAny"] = {
         test.done();
     },
 
-    "the index of the event emitter should be emitted": function(test) {
+    "the event emitter index and event parameters should be reemitted": function(test) {
         var emittedIndex = -1;
 
         var e1 = new events.EventEmitter();
@@ -53,8 +53,8 @@ exports["WaitForAny"] = {
         waiter.add([e1, e2, e3]);
         waiter.wait();
 
-        e3.emit('done');
-        test.equal(emittedIndex, 2);
+        e3.emit('done', 'arg1', 'arg2');
+        test.equal(emittedIndex, 2, 'arg1', 'arg2');
 
         test.done();
     },

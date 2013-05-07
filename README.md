@@ -128,6 +128,7 @@ Start waiting on `EventEmitter` instances.
 #### Event: 'done'
 
 - index: the index of the `EventEmitter` that has fired
+- args...: the parameters returned by the `EventEmitter`
 
 Emitted when the waiting criterion has been satisfied before timeout.
 
