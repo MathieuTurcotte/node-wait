@@ -5,9 +5,9 @@
     "author": "Mathieu Turcotte <turcotte.mat@gmail.com>",
     "keywords": ["wait", "events", "async", "condition"],
     "devDependencies": {
+        "jshint": "2.4",
         "nodeunit": "0.8",
-        "sinon": "1.6",
-        "jshint": "1.1"
+        "sinon": "1.6"
     },
     "repository": {
         "type": "git",
