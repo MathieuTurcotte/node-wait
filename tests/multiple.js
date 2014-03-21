@@ -67,6 +67,23 @@ exports["WaitForMultiple"] = {
         test.done();
     },
 
+    "timeouts above MAX_TIMEOUT should result in no timeout": function(test) {
+        var hasTimedOut = false;
+
+        var waiter = new WaitForNothing({
+            timeout: WaitForMultiple.MAX_TIMEOUT + 1
+        });
+        waiter.once('timeout', function() {
+            hasTimedOut = true;
+        });
+        waiter.wait();
+
+        this.clock.tick(WaitForMultiple.MAX_TIMEOUT + 2);
+        test.ok(!hasTimedOut);
+
+        test.done();
+    },
+
     "listeners should be removed on 'timeout'": function(test) {
         var e1 = new events.EventEmitter();
         var e2 = new events.EventEmitter();
