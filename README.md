@@ -55,11 +55,7 @@ all.wait();
 var toilets = [toilet1, toilet2, toilet3];
 
 ewait.waitForAll(toilets, function(err) {
-    if (err) {
-        console.log('Timeout!');
-    } else {
-        console.log('Done!');
-    }
+    console.log(err ? 'Timeout!' : 'Done!');
 }, 2000, 'flushed');
 ```
 
@@ -75,8 +71,8 @@ Construct a new wait object with an 'AND' semantic.
 
 ```js
 options = {
-    timeout: undefined, // No timeout.
-    event: 'done'       // Listen for 'done' event.
+    timeout: -1,  // No timeout.
+    event: 'done' // Listen for 'done' events.
 };
 ```
 
@@ -110,8 +106,8 @@ Construct a new wait object with an 'OR' semantic.
 
 ```js
 options = {
-    timeout: undefined, // No timeout.
-    event: 'done'       // Listen for 'done' event.
+    timeout: -1,  // No timeout.
+    event: 'done' // Listen for 'done' events.
 };
 ```
 
@@ -140,8 +136,8 @@ Emitted when timeout expires before waiting criterion is satisfied.
 
 - emitters: an array of `EventEmitter`
 - callback: continuation callback
-- event: the event name
-- timeout: the timeout delay
+- event: the event name, defaults to 'done'
+- timeout: the timeout delay, defaults to -1
 
 `event` defaults to `done` and `timeout` defaults to undefined.
 
