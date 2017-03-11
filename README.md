@@ -31,6 +31,8 @@ This behavior can be altered by specifying a custom event type.
 ### Object-Oriented style
 
 ``` js
+var WaitForAll = require('ewait').WaitForAll;
+
 var all = new WaitForAll({
     timeout: 2000,      // Wait for 2000ms max.
     event: 'flushed'    // Wait for a custom event.
@@ -52,6 +54,8 @@ all.wait();
 ### Functional style
 
 ``` js
+var ewait = require('ewait');
+
 var toilets = [toilet1, toilet2, toilet3];
 
 ewait.waitForAll(toilets, function(err) {
